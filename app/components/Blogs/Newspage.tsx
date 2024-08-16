@@ -37,6 +37,7 @@ import {
   Subtitle,
   ButtonGroup,
 } from "../styles/newPage";
+import { SkeletonTheme } from "react-loading-skeleton";
 
 interface Article {
   title: string;
@@ -191,71 +192,143 @@ const NewsPage: React.FC = () => {
           <Newsletter>
             <NewsChild>
               <NewsHeader>
-                <MailIcon />
-                <Heading>ZebPay Blog Digest</Heading>
-                <Qoute>
-                  Stay ahead with our weekly crypto blogs & updates!
-                </Qoute>
+                {loading ? (
+                  <SkeletonWrapper isLoading={loading} height={80} width={80} />
+                ) : (
+                  <MailIcon />
+                )}
+
+                {loading ? (
+                  <SkeletonWrapper
+                    isLoading={loading}
+                    height={28}
+                    width={220}
+                  />
+                ) : (
+                  <Heading>ZebPay Blog Digest</Heading>
+                )}
+                {loading ? (
+                  <SkeletonWrapper
+                    isLoading={loading}
+                    height={48}
+                    width={255}
+                  />
+                ) : (
+                  <Qoute>
+                    Stay ahead with our weekly crypto blogs & updates!
+                  </Qoute>
+                )}
               </NewsHeader>
-              <Form>
-                <Input
-                  label="Enter Email Address"
-                  onBlur={function noRefCheck() {}}
-                  onChange={function noRefCheck() {}}
-                  onFocus={function noRefCheck() {}}
-                  onKeyDown={function noRefCheck() {}}
-                  onWheel={function noRefCheck() {}}
-                  placeholder="Enter Email Address"
-                  style={{
-                    name: "3s4yqf",
-                    styles: "width:100%",
-                  }}
-                />
-              </Form>
-              <Button
-                onClick={function noRefCheck() {}}
-                size="full-width"
-                type="primary"
-              >
-                Subscribe
-              </Button>
+              {loading ? (
+                <SkeletonWrapper isLoading={loading} height={40} width={255} />
+              ) : (
+                <Form>
+                  <Input
+                    label={
+                      loading ? (
+                        <SkeletonWrapper
+                          isLoading={loading}
+                          height={20}
+                          width={220}
+                        />
+                      ) : (
+                        "Enter Email Address "
+                      )
+                    }
+                    onBlur={function noRefCheck() {}}
+                    onChange={function noRefCheck() {}}
+                    onFocus={function noRefCheck() {}}
+                    onKeyDown={function noRefCheck() {}}
+                    onWheel={function noRefCheck() {}}
+                    placeholder="Enter Email Address"
+                    style={{
+                      name: "3s4yqf",
+                      styles: "width:100%",
+                    }}
+                  />
+                </Form>
+              )}
+              {loading ? (
+                <SkeletonWrapper isLoading={loading} height={34} width={255} />
+              ) : (
+                <Button
+                  onClick={function noRefCheck() {}}
+                  size="full-width"
+                  type="primary"
+                >
+                  Subscribe
+                </Button>
+              )}
             </NewsChild>
           </Newsletter>
           <TradingBanner>
-            <Topology></Topology>
+            {/* <Topology></Topology> */}
             <Frame>
               <AnotherFrame>
-                <ZebpayImageDiv>
-                  
-                </ZebpayImageDiv>
+                {loading ? (
+                  <SkeletonWrapper isLoading={loading} height={60} width={60} />
+                ) : (
+                  <ZebpayImageDiv></ZebpayImageDiv>
+                )}
+
                 <TextWrapper>
-                  <Title>
-                      Stay Informed, Trade Smart
-                  </Title>
-                  <Subtitle>
-                      Get real-time crypto updates and trade Crypto on ZebPay.
-                    Download now!
-                  </Subtitle>
+                  {loading ? (
+                    <SkeletonWrapper
+                      isLoading={loading}
+                      height={28}
+                      width={220}
+                    />
+                  ) : (
+                    <Title>Crypto Knowledge Hub</Title>
+                  )}
+                  {loading ? (
+                    <SkeletonWrapper
+                      isLoading={loading}
+                      height={48}
+                      width={255}
+                    />
+                  ) : (
+                    <Subtitle>
+                      Stay updated on the latest trends and insights with
+                      ZebPay. Download now
+                    </Subtitle>
+                  )}
                 </TextWrapper>
               </AnotherFrame>
               <ButtonGroup>
+                {loading ? (
+                  <SkeletonWrapper
+                    isLoading={loading}
+                    height={32}
+                    width={121.5}
+                  />
+                ) : (
                   <Button
-                onClick={function noRefCheck() {}}
-                size="medium"
-                type="primary"
-              >
-                ...
-              </Button>
-              <Button
-                onClick={function noRefCheck() {}}
-                size="medium"
-                type="primary"
-              >
-                ...
-              </Button>
+                    onClick={function noRefCheck() {}}
+                    size="medium"
+                    type="primary"
+                  >
+                    ...
+                  </Button>
+                )}
+
+                {loading ? (
+                  <SkeletonWrapper
+                    isLoading={loading}
+                    height={32}
+                    width={121.5}
+                  />
+                ) : (
+                  <Button
+                    onClick={function noRefCheck() {}}
+                    size="medium"
+                    type="primary"
+                  >
+                    ...
+                  </Button>
+                )}
               </ButtonGroup>
             </Frame>
-            
           </TradingBanner>
         </Innercard>
       </InnerDiv>
